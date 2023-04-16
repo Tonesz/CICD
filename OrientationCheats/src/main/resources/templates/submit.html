@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+<body id="submit">
+    <div id="href">
+        <a href="/main" type="submit" th:href="@{/}">Back to Main</a>
+    </div>
+
+    <h1> Submit a new post</h1>
+
+    <form id="add" method="post" th:action="@{/submit}">
+        <div>
+            <label for="counter">Counter: </label>
+            <input type="text" id="counter" name="counter"/>
+        </div>
+
+        <div>
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title"/>
+        </div>
+
+
+
+<!--        <div>-->
+<!--            <label for="nest">Nest: </label>-->
+<!--            <select id="nest" name="nest">-->
+<!--                <option th:each="nest : ${nests}" th:value="${nest.getId()}" th:text="${nest.getName()}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

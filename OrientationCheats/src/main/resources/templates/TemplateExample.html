@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"> <!--Thymeleaf link -->
+<head>
+    <meta charset="UTF-8">
+    <title>Template Example</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" /> <!-- CSS -->
+</head>
+
+
+<body th:style="'background : '+${randomColor}+';'"> <!-- Ha style-t akarunk adni backend oldalról (hülye syntax miatt nem érdemes) -->
+
+<!-- divet kicserélő template -->
+<header>
+    <div th:replace="~{fragments/HTML_NEVE :: Fragment_Neve}"></div>
+<!--    <div th:replace="~{fragment/nav :: nav}"></div>-->
+</header>
+
+<!-- table példa -->
+<table th:if="${data.size() > 0}"> <!-- Megnézi hogy a kapott lista nem üres-e -->
+    <tr>
+        <th>Name</th>
+        <th>Stb1</th>
+        <th>Stb2</th>
+        <th>Stb3</th>
+    </tr>
+
+    <tr th:each="item : ${data}"> <!-- mint a foreach végig megy a kapott listán -->
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.stb1}"></td>
+        <td th:text="${item.stb2}"></td>
+        <td th:text="${item.stb3}"></td>
+    </tr>
+</table>
+
+<!-- th hyperlink példa -->
+<a href="/VÉGPONT" th:href="@{/TH:VÉGPONT}">Link</a>
+
+<ul th:if="${data.size() > 0}"> <!-- Megnézi hogy a kapott lista nem üres-e -->
+    <li th:each="item : ${data}"> <!-- mint a table-nél végig megy a kapott listán -->></li>
+</ul>
+<div th:unless> <!-- Ha nem teljsül az if-ben a feltétel -->
+</div>
+
+<!-- megadott értékekre irányuló link -->
+<a href="/végpont-neve?változó=változóÉrtéke">egy változós link</a>
+<!-- több válzotó megadása: & -->
+<a href="/végpont-neve?változó=változóÉrtéke&maásikVáltozó=annakÉrtéke">két változós link</a>
+
+
+<!-- form példa -->
+<form th:action="@{'/change-meal/?name='+${fox.getName()}}" method="post"></form> <!-- pl egy kicsit komolyabb URL-re mutató linkkel -->
+
+<form action="/példa-url/ide-menjen-a-POST" method="post"> <!-- a CONTORLLER-en belül ezt a végpontot kell figyelni PostMapping-gel! -->
+    <label for="name"></label> <!--nem kötelező, a for a mögötte álló input ID-ját figyeli-->
+    <input type="text" name="userName" id="name"> <!-- backend oldalon a PostMapping-nél a mezők 'name'-jét figyeli, tehát @RequestParamnál a name-et kell megadni (ebben az esetben 'userName') -->
+    <input type="submit" value="Search"> <!-- ilyenkor történik meg a POST -->
+</form>
+
+<!-- th:if-re példa th:text-tel -->
+<p th:if="${isExist}" th:text="Kiírandó szöveg"></p>
+
+<!-- kiíratási formák! -->
+<div th:text="${email} + ' is a valid email address'"></div>
+
+<ul th:if="${actionHistory.size()} != 0 or ${actionHistory.size()} != null">
+    <li th:each="item : ${actionHistory}" th:text="${item.localDate} + ' ' + ${item.action}"></li>
+</ul>
+
+<!-- checkBox példa kezdőértékkel -->
+<input type="checkbox" name="isDone" id="done" th:checked="${bejövőParaméter.isNeve()}">
+
+
+<!-- Egy alap Login/Register példa -->
+<div>
+  <div>
+    <h2>Login</h2>
+    <form th:action="@{'/login'}" method="post">
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username">
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password">
+      <input type="submit" value="Log in!">
+    </form>
+  </div>
+  <div>
+    <h2>Register</h2>
+    <form th:action="@{'/register'}" method="post">
+      <label for="username2">Username: </label>
+      <input type="text" name="username" id="username2">
+      <label for="password2">Password: </label>
+      <input type="password" name="password" id="password2">
+      <label for="confPsw">Password: </label>
+      <input type="password" name="confirmationPassword" id="confPsw">
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>

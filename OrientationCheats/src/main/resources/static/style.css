@@ -1,0 +1,25 @@
+h1{
+    text-align:center;
+}
+body{
+    background-color: black;
+    color: gray;
+}
+
+button{
+    background-color: black;
+    color: gray;
+}
+
+
+/*#header{*/
+/*    background-color: aqua;*/
+/*}*/
+
+a{
+    color: purple;
+}
+
+#submit{
+    text-align: center;
+}

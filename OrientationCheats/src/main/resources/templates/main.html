@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very Main</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+<body>
+
+<div id="href">
+    <a href="/available" type="submit" th:href="@{/submit}">Submit new post</a>
+</div>
+
+
+<h1> Trading post</h1>
+
+<div id="cycle">
+
+<!--    <table>-->
+<!--        <tr id="header">-->
+<!--            <th th:text="'ID /'"></th>-->
+<!--            <th th:text="'Counter /'"></th>-->
+<!--            <th th:text="' Plus /'"></th>-->
+<!--            <th th:text="' Minus /'"></th>-->
+<!--            <th th:text="'Topic '"></th>-->
+<!--        </tr>-->
+
+<!--        <tr th:each="item : ${list} " th:object="${item}">-->
+<!--            <td th:text=" *{getId()}"></td>-->
+<!--            <td th:text=" *{getCounter()}"></td>-->
+<!--            <td>-->
+<!--                <form id="plus" method="post" th:action="@{/plus}">-->
+<!--                    <a href="/plus" type="submit" th:href="@{/}">+</a>-->
+<!--                </form>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <a href="/minus" type="post" th:href="@{/}" th:text="*{counterMinus()}"></a>-->
+<!--            </td>-->
+
+
+
+<!--            <td>-->
+<!--                <form id="minusOne" method="post" th:action="@{/main}">-->
+<!--                    <div>-->
+<!--                        <label for="counter">Counter: </label>-->
+<!--                        <input type="text" id="counter" name="counter"/>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </td>-->
+<!--            <td th:text=" *{getTitle()}"></td>-->
+            <td>
+                <a href="/link" type="submit" th:href="@{/}">
+<!--                    <p th:text=" *{get()}"></p>-->
+                </a>
+            </td>
+
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

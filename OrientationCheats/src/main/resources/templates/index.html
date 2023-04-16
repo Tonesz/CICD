@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/nav :: home}"></div>
+
+
+
+<div id="cycle">
+
+<!--    <table>-->
+<!--        <tr id="header">-->
+<!--            <th th:text="'Name '"></th>-->
+<!--            <th th:text="'Description '"></th>-->
+<!--            <th th:text="'Price '"></th>-->
+<!--            <th th:text="'Quantity of stock'"></th>-->
+<!--        </tr>-->
+
+<!--        <tr th:each="item : ${list} " th:object="${item}">-->
+<!--            &lt;!&ndash;            <td th:text="${iter.index + 1} + '.'"></td>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <td th:text="|${itemStat.index+1}.|"></td>&ndash;&gt;-->
+<!--            <td th:text=" *{getName()}"></td>-->
+<!--            <td th:text=" *{getDescription()}"></td>-->
+<!--            <td th:text=" *{getPrice()} + ' Kč' "></td>-->
+<!--            <td th:text=" *{getQuantity()}"></td>-->
+
+<!--    </table>-->
+
+</div>
+
+</body>
+</html>
